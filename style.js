@@ -24,7 +24,8 @@ function initMap() {
   
   // Create an info window to share between markers.
   const infoWindow = new google.maps.InfoWindow();
-  const image = './img/cleaning (2).png'
+  const image = './img/cleaning (2).png';
+  const rasm = `<img src="./img/musr1.jpg" alt="" />`
  
   // Create the markers.
   function markerfun(){
@@ -33,7 +34,7 @@ function initMap() {
        marker = new google.maps.Marker({
         position,
         map,
-        title: `${title} da musr joylar soni ${obect.soni}`,
+        title: `${title} da musr joylar soni ${obect.soni}  ${rasm} `,
         // label: `${obect.soni}`,
         optimized: false,
         draggable: false,
@@ -47,7 +48,6 @@ function initMap() {
       infoWindow.close();
       infoWindow.setContent(marker.getTitle());
       infoWindow.open(marker.getMap(), marker);
-     
     });
   });
 }
@@ -58,7 +58,7 @@ geoposbtn.addEventListener('click',()=>{
          navigator.geolocation.getCurrentPosition((position)=>{
            tourStops.push( [{soni:0},{ lat:position.coords.latitude, lng: position.coords.longitude }, "Men turgan joy"],)
            console.log(tourStops);
-           markerfun()
+           markerfun();
          })
        }
  })
