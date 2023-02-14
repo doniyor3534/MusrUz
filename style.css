@@ -34,10 +34,12 @@ nav ul{
   align-items: center;
   gap: 25px;
 }
-nav ul a{
+nav ul a,
+nav ul button{
   font-size: 25px;
   background-color: rgb(234, 235, 235);
   padding: 10px;
+  border: none;
 }
 
 
@@ -45,6 +47,35 @@ nav ul a{
    margin-top: 10vh;
     height: 90vh;
     width: 100%;
+  }
+  #ariza{
+    margin-top: 10vh;
+    height: 90vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #ariza form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #203320;
+    gap: 10px;
+    color: white;
+  }
+  #ariza form input{
+    width: 300px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .yuborish{
+    padding: 10px;
+    font-size: 20px;
+  }
+  textarea{
+    font-size: 20px;
   }
   
   /* 
@@ -67,6 +98,14 @@ nav ul a{
    background-color: orange;
    color: white;
  }
+.musrimg{
+  width: 150px;
+  height: 150px;
+}
+
+
+
+
   
  @media(max-width:420px){
   nav{
@@ -90,7 +129,8 @@ nav ul a{
     align-items: center;
     gap: 5px;
   }
-  nav ul a{
+  nav ul a,
+  nav ul button{
     font-size: 15px;
     background-color: rgb(234, 235, 235);
     padding: 2px;
