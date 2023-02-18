@@ -35,13 +35,18 @@ function submitfun(val) {
 
 
 // ////////////////////////
-
+let loader = document.querySelector('.loader')
 // ////////////////////
 let res = true
 const Datamess = ref(database, 'messages/');
 onChildAdded(Datamess, (res) => {
   data.push(res.val().message);
   console.log(data);
+  if(!data){
+    loader.classList.add('active')
+  }else{
+    loader.classList.remove('active')
+  }
   if(res){
     initMap()
     res = false
@@ -146,7 +151,8 @@ function initMap() {
 
   // buttongpc
   markerfun()
-  setInterval(() => {
+  let arizabtn = document.querySelector('.arizabtn')
+   arizabtn.addEventListener('click',()=>{
     let button = document.querySelector('.yuborish')
     let photo = document.querySelector('#photo')
     let izoh = document.querySelector('#izoh')
@@ -157,7 +163,6 @@ function initMap() {
         reader.readAsDataURL(img)
         reader.addEventListener('load', () => {
           input[0].rasm = reader.result
-          console.log(input);
         })
       })
       izoh.addEventListener('keyup', (e) => {
@@ -183,6 +188,9 @@ function initMap() {
       })
 
     }
+   })
+  setInterval(() => {
+   
   }, 2000);
 
 }

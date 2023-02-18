@@ -21,7 +21,7 @@ function navresultfun() {
          </form>
      </div>`
   } else {
-    ul.innerHTML = `    <button  onclick="kurishfun(2)" >Ariza yuborish</button>`
+    ul.innerHTML = `    <button  onclick="kurishfun(2)" class='arizabtn' >Ariza yuborish</button>`
     body.innerHTML = `<div id="map"></div>`
   }
 }
