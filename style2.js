@@ -105,9 +105,14 @@ function mapfunc() {
         let  photo =  document.querySelector('#photo')
         let  izoh =  document.querySelector('#izoh')
         if(button){
-         photo.addEventListener('input',(e)=>{
-            input[0].rasm = URL.createObjectURL(e.target.files[0])
-            console.log(input);
+         photo.addEventListener('change',(e)=>{
+          let  reader = new FileReader()
+            const img  = e.target.files[0]
+             reader.readAsDataURL(img)
+            reader.addEventListener('load',()=>{
+              input[0].rasm = reader.result
+              console.log(input);
+            })
          })
          izoh.addEventListener('keyup',(e)=>{
             input[2] = e.target.value
