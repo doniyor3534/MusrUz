@@ -30,9 +30,6 @@ navresultfun()
 let sendFunc = () => {
   navresult = false
   navresultfun()
-  setTimeout(() => {
-    location.reload(true)
-  }, 1000);
 }
 
 
