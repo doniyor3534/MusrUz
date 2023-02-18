@@ -37,11 +37,15 @@ function submitfun(val) {
 // ////////////////////////
 
 // ////////////////////
+let res = true
 const Datamess = ref(database, 'messages/');
 onChildAdded(Datamess, (res) => {
   data.push(res.val().message);
   console.log(data);
-  initMap()
+  if(res){
+    initMap()
+    res = false
+  }
 })
 // ////////////////////
 let map ,infoWindow;
