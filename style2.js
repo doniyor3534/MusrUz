@@ -19,8 +19,8 @@ let id = push(child(ref(database), 'messages')).key;
 
 const data = [];
 let input = [{ rasm: '', soni: 0 }, { lat: 0, lng: 0 }, ""];
-function submitfun(val) {
-  let name = 'user1';
+function submitfun(val,usernomi) {
+  let name = usernomi;
 
   set(ref(database, 'messages/' + id), {
     name: name,
@@ -156,6 +156,8 @@ function initMap() {
     let button = document.querySelector('.yuborish')
     let photo = document.querySelector('#photo')
     let izoh = document.querySelector('#izoh')
+    let name = document.querySelector('#name')
+    let usernomi = '';
     if (button) {
       photo.addEventListener('change', (e) => {
         let reader = new FileReader()
@@ -167,15 +169,17 @@ function initMap() {
       })
       izoh.addEventListener('keyup', (e) => {
         input[2] = e.target.value
-        console.log(input);
+      })
+      name.addEventListener('keyup', (e) => {
+        usernomi = e.target.value
       })
       button.addEventListener('click', () => {
-        if (navigator.geolocation && photo.value !== '' && izoh.value !== '') {
+        if (navigator.geolocation && photo.value !== '' && izoh.value !== '' && name.value !== '') {
           navigator.geolocation.getCurrentPosition((position) => {
             input[1].lat = position.coords.latitude
             input[1].lng = position.coords.longitude
             console.log(input);
-            submitfun(input)
+            submitfun(input,usernomi)
             markerfun();
             // setTimeout(() => {
             //   location.reload(true)
@@ -189,9 +193,7 @@ function initMap() {
 
     }
    })
-  setInterval(() => {
-   
-  }, 2000);
+ 
 
 }
 
