@@ -130,9 +130,7 @@ nav ul button{
   .logo img{
     width: 50px;
   }
-  .logo span{
-    display: none;
-  }
+  
   nav ul{
     display: flex;
     align-items: center;
