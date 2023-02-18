@@ -33,16 +33,18 @@ function  submitfun (val){
 //      submitfun()
 //  }, 2000);
 
+
+// ////////////////////////
+
+// ////////////////////
 const Datamess = ref(database, 'messages/');
 onChildAdded(Datamess, (res) => {
   data.push(res.val().message);
   console.log(data);
+  initMap()
 })
-// ////////////////////////
-function mapfunc() {
-
+// ////////////////////
     let map;
-    let geoposbtn = document.querySelector('.geoposbtn')
     // let tourStops = [
     //   [{ rasm: './img/musr1.jpg', soni: 10 }, { lat: 41.01833, lng: 71.64847 }, "Namangan"],
     //   [{ rasm: './img/musr2.jpg', soni: 50 }, { lat: 40.85234, lng: 72.23074 }, "Andijon"],
@@ -56,8 +58,8 @@ function mapfunc() {
     //   [{ rasm: './img/musr2.jpg', soni: 60 }, { lat: 41.54670, lng: 60.58523 }, "Urganch"],
     //   [{ rasm: './img/musr1.jpg', soni: 55 }, { lat: 42.50965, lng: 59.55252 }, "Nukus"],
     // ];
-   let tourStops = data
-  async  function initMap() {
+  
+    function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 40.31444, lng: 65.46454 },
         zoom: 5,
@@ -71,6 +73,7 @@ function mapfunc() {
   
       // Create the markers.
       function markerfun() {
+      let tourStops =  data
         tourStops.forEach(([obect, position, title], i) => {
           let marker;
           marker = new google.maps.Marker({
@@ -94,14 +97,15 @@ function mapfunc() {
         });
       }
       markerfun()
-      setTimeout(() => {
-        markerfun()
-      }, 3000);
+      // setTimeout(() => {
+      //   markerfun()
+      // }, 3000);
+
+
       // buttongpc
       markerfun()
       setInterval(() => {
         let  button =  document.querySelector('.yuborish')
-        let  tel =  document.querySelector('#tel')
         let  photo =  document.querySelector('#photo')
         let  izoh =  document.querySelector('#izoh')
         if(button){
@@ -119,7 +123,7 @@ function mapfunc() {
             console.log(input);
          })
           button.addEventListener('click',()=>{
-           if (navigator.geolocation) {
+           if (navigator.geolocation && photo.value !== '' && izoh.value !== '') {
              navigator.geolocation.getCurrentPosition((position) => {
                input[1].lat= position.coords.latitude
                input[1].lng= position.coords.longitude 
@@ -128,6 +132,8 @@ function mapfunc() {
                markerfun();
     
              })
+           }else{
+             alert(`iltimos malumotni to'liq kirirting`)
            }
           
           })
@@ -139,8 +145,7 @@ function mapfunc() {
   
     window.initMap = initMap;
   
-  }
-  mapfunc()
+
 
 
 

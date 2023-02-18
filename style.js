@@ -12,8 +12,6 @@ function navresultfun() {
     body.innerHTML = `<div id="ariza">
          <form className="arizaform" >
              <h2>Ariza yuborish</h2>
-             <label for='tel'>telefon nomer</label>
-             <input id='tel' type='number' placeholder='telefon nomer kiriting' />
              <label for='photo'>Photo </label>
              <input id='photo' type='file' placeholder='photo kiriting' />
              <label for='izoh'>Izoh qoldiring</label>
@@ -30,7 +28,11 @@ function navresultfun() {
 navresultfun()
 
 let sendFunc = () => {
-    
+  navresult = false
+  navresultfun()
+  setTimeout(() => {
+    location.reload(true)
+  }, 1000);
 }
 
 
