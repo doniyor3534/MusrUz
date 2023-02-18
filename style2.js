@@ -71,7 +71,7 @@ function initMap() {
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Siz turgan joy";
+  locationButton.innerHTML = `<img src="./img/map.png" alt="" />`;
   locationButton.classList.add("sizturganjoy");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
