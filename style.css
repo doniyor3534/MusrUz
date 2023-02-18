@@ -99,7 +99,7 @@ nav ul button{
    color: white;
  }
 .musrimg{
-  width: 150px;
+  width: min-content !important;
   height: 150px;
 }
 

@@ -67,7 +67,7 @@ function mapfunc() {
   
       // Create an info window to share between markers.
       const infoWindow = new google.maps.InfoWindow();
-      const image = './img/icon.png';
+      const image = './img/trash.png';
   
       // Create the markers.
       function markerfun() {
@@ -126,9 +126,10 @@ function mapfunc() {
                console.log(input);
                submitfun(input)
                markerfun();
-              
+    
              })
            }
+          
           })
 
         }
