@@ -30,6 +30,7 @@ navresultfun()
 let sendFunc = () => {
   navresult = false
   navresultfun()
+  
 }
 
 
