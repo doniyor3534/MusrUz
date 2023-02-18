@@ -177,7 +177,9 @@ function initMap() {
             console.log(input);
             submitfun(input)
             markerfun();
-            location.reload(true)
+            setTimeout(() => {
+              location.reload(true)
+            },10);
           })
         } else {
           alert(`iltimos malumotni to'liq kirirting`)
